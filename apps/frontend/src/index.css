@@ -1,2 +1,8 @@
 
 @import "tailwindcss";
+
+.body  {
+    flex-center {
+        @apply flex flex-col justify-center items-center;
+    }
+}
