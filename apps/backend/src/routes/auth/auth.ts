@@ -1,4 +1,4 @@
-import { prisma } from "@prisma";
+
 import { LoginSchema, ResetSchema } from "@types";
 import express, { Request, Response } from "express";
 import bcrypt from "bcrypt";
@@ -14,6 +14,7 @@ const RegisterSchema = z.object({
     email : z.string()
 })
 
+
 const jwtsecret : string = process.env.JWT_SECRET || "keysecret";
 
 authRouter.post('/register',async (req,res)=>{
@@ -28,7 +29,7 @@ authRouter.post('/register',async (req,res)=>{
       
       const salt =await  bcrypt.genSalt(10);
       const hashedpass = await bcrypt.hash(password,salt);
-      const userResponse = await prisma.user.create({
+      const userResponse =  .create({
          data : {
             name : username,
             password : hashedpass,
